@@ -1,0 +1,18 @@
+<% if  is_admin?(current_user.username) %>
+<%= link_to image_tag("back.png", :border=>0, :class => 'dock-item'), users_path, class: "pull-left"  %>
+<%end%>
+<div class="container">
+    <div class="content">
+      <div class="row">
+        
+<div class="clearfix">Name: <%= up(@user.username) %></div>
+
+<div class="clearfix">Email: <%= @user.email %></div>
+
+
+<%= link_to 'View Profile', user_profiles_path(:user_id =>@user), class:"btn btn-default btn-lg" %>
+<%= link_to 'Memebers', users_path, class:"btn btn-info btn-lg" %>
+
+      </div>
+    </div>
+  </div>

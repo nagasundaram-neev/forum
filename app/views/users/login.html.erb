@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="content">
+      <div class="row">
+        <div class="login-form">
+          <h2>Login</h2>
+  <%= form_tag(:action => 'login') do %>
+     <fieldset>
+      <div class="clearfix">
+        	<%= text_field_tag(:username_or_email, "Username" ) %>
+      </div>
+      <div class="clearfix">
+  	  <%= password_field_tag(:login_password, "password") %>
+
+    <%= link_to 'New user? Register', new_user_path, class:"btn btn-primary btn-xs" %>
+    <%= submit_tag "Log In", class:"btn btn-success" %>	
+    </fieldset>
+ <% end %>
+ <p ><%= notice %></p>
+  </div>
+      </div>
+    </div>
+  </div>
+

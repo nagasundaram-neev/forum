@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="content">
+      <div class="row">
+      <h2>Register</h2>
+<%= form_for(@user) do |f| %>
+  
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being Registered:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+     <%= f.text_field :username, :placeholder => "Username"  %>
+  </div>
+  <div class="field">
+    <%= f.password_field :password, :placeholder => "Password" %>
+  </div>
+  <div class="field">
+    <%= f.text_field :email, :placeholder => "Email" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+
+<% end %>
+  </div>
+  </div>
+  </div>
+  <% if signed_in? %>
+  <% if  is_admin?(current_user.username) %>
+<%= link_to image_tag("back.png", :border=>0, :class => 'dock-item'), users_path, class: "pull-left"  %>
+<% end %>
+<else>
+  <%= link_to image_tag("back.png", :border=>0, :class => 'dock-item'), "/", class: "pull-left"  %>
+<%end%>

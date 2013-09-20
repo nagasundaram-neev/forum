@@ -1,0 +1,21 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-inner">
+      	<span id='logo'><%= image_tag "neev.png", width: 50, height: 50 %> My First ROR Application</span>
+        <div class="container">
+          <nav>
+            <ul class="nav pull-right">
+              <li><%= link_to "About",staic_pages_about_path %></li>
+              <li><%= link_to "Help", staic_pages_help_path %></li>
+              <% if signed_in? %>
+              <li> <%= link_to 'Memebers', users_path %></li>
+              <li><%= link_to 'Logout', logout_users_path %></li>
+              <% end %>
+              <% unless signed_in? %>
+              <li><%= link_to 'login', login_users_path %></li>
+             <li> <%= link_to "Sign up now!", new_user_path %></li>
+              <% end %>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>

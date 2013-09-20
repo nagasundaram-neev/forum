@@ -1,0 +1,31 @@
+<%= image_tag @profile.avatar.url, width: 200, height: 200, class:"img-circle" %>
+<div class="container">
+    <div class="content">
+      <div class="row">
+ <table class="table">
+<tr>
+  <td><strong>Full Name</strong></td>
+  <td><%= fullname(up(@profile.first_name),up(@profile.last_name)) %></td>
+ </tr> 
+<tr>
+ <td><strong>Gender</strong></td>
+  <td><%= gen(@profile.gender) %></td>
+</tr>
+<tr>
+ <td><strong>Date of Birth</strong></td>
+ <td> <%= @profile.dob %></td>
+</tr>
+
+<tr>
+<td><strong>Age</strong></td>
+ <td><%= age(@profile.dob) %></td>
+ </tr>
+</table>
+
+ <%= link_to 'Edit', edit_user_profile_path(:user_id =>params[:user_id], :id =>@profile.id), class: "btn btn-default" %>
+<%= link_to 'Logout', root_path, class: "btn btn-warning" %>
+  </div>
+    </div>
+  </div>
+
+

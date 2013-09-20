@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="content">
+    <div class="row">
+    	<h2>Register</h2>
+    	<%= form_for([@user, @profile], :html => {:multipart => true}) do |f| %>
+
+			<div class="field">
+	    	<%= f.text_field :first_name, :placeholder => "First Name"  %>
+  		</div> 
+    	<div class="field">
+	  	  <%= f.text_field :last_name, :placeholder => "Last Name" %>
+   		</div>
+  	<div class="field">
+  		<div class="btn btn-link">
+	    	<%= f.radio_button :gender, "M"%><%= f.label :gender, "Male" %>      
+				<%= f.radio_button :gender, "F"%><%= f.label :gender, "Female" %>
+   		</div>
+   	</div>
+	   	<div class="field">
+	   		<p>Date of Birth</p>
+   			<%= f.date_select :dob, {:start_year => Time.now.year, :end_year => Time.now.year - 95}, class: "btn btn-success" %>
+   			</div>
+   		<div class="field">
+    		<%= f.file_field :avatar %>
+   		</div>
+   		<div class="field">
+    	<%= f.submit class: "btn btn-success btn-x" %>
+   		</div>
+
+			<% end %>
+		</div>
+	</div>
+</div>
